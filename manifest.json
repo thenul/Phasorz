@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "PhasorZ",
+  "version": "1.1",
+  "description": "Bench tools for circuits — impedance calculator and signal generator.",
+  "author": "TDM",
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
+  "permissions": ["storage"]
+}

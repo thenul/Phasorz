@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PhasorZ</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+<section data-view="home">
+  <header class="home-head">
+    <h1>PhasorZ</h1>
+    <p>Bench tools for circuits</p>
+  </header>
+
+  <button class="tool-card" data-tool="impedance">
+    <span class="tool-icon">Z</span>
+    <span class="tool-body">
+      <span class="tool-name">Impedance network</span>
+      <span class="tool-desc">Series &amp; parallel R, L, C</span>
+    </span>
+    <span class="tool-chev" aria-hidden="true">›</span>
+  </button>
+
+  <button class="tool-card" data-tool="fgen">
+    <span class="tool-icon">∿</span>
+    <span class="tool-body">
+      <span class="tool-name">Signal bench</span>
+      <span class="tool-desc">Generator &amp; scope — opens tab</span>
+    </span>
+    <span class="tool-chev" aria-hidden="true">↗</span>
+  </button>
+
+  <div class="footer">
+    Created by <span class="footer-name">TDM</span>
+  </div>
+</section>
+
+<section data-view="impedance" hidden>
+  <header class="tool-head">
+    <button class="back" data-back aria-label="Back to tools">←</button>
+    <h1>Impedance network</h1>
+  </header>
+
+  <label for="frequency">System frequency (Hz)</label>
+  <input type="text" id="frequency" value="1k">
+  <div id="freq-error" class="error">Invalid frequency format</div>
+
+  <label for="comp-type">Component type</label>
+  <select id="comp-type">
+    <option value="R">Resistor (Ω)</option>
+    <option value="L">Inductor (H)</option>
+    <option value="C">Capacitor (F)</option>
+  </select>
+
+  <label for="comp-value">Value (e.g., 4.7k, 10u)</label>
+  <input type="text" id="comp-value" placeholder="e.g., 4.7k">
+  <div id="val-error" class="error">Invalid value format</div>
+
+  <div id="connection-container" hidden>
+    <label for="comp-conn">Connection type</label>
+    <select id="comp-conn">
+      <option value="s">Series</option>
+      <option value="p">Parallel</option>
+    </select>
+  </div>
+
+  <button id="add-btn" class="primary">Add component</button>
+
+  <div class="display-box">
+    <div class="result-line" id="rect-output">Rectangular: 0.00 + 0.00j Ω</div>
+    <div class="result-line" id="polar-output">Polar: 0.00 ∠ 0.00°</div>
+    <div class="freq-display" id="freq-display">Frequency: 1,000.00 Hz</div>
+  </div>
+
+  <button class="secondary" id="reset-btn">Reset network</button>
+</section>
+
+<script type="module" src="popup.js"></script>
+</body>
+</html>
