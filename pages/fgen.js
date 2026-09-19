@@ -1,4 +1,4 @@
-import { parseEngineeringNotation } from '../shared/units.js';
+import { parseEngineeringNotation } from '/shared/units.js';
 
 const cv = document.getElementById('scope');
 const ctx = cv.getContext('2d');
